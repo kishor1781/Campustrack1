@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusTrack digital lost and found noticeboard">
+  <title>CampusTrack | Lost & Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">CT</span><span>CampusTrack</span></a>
+    <div class="header-tools">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search items..."></label>
+      <select id="statusFilter" aria-label="Filter by status"><option value="ALL">All statuses</option><option value="LOST">Lost items</option><option value="FOUND">Found items</option><option value="CLAIMED">Claimed items</option></select>
+    </div>
+  </header>
+
+  <main id="top" class="shell">
+    <section class="hero">
+      <div><p class="eyebrow">Student community noticeboard</p><h1>Lost something?<br><em>Find it here.</em></h1><p class="hero-copy">A shared space for campus belongings. Report an item, browse recent posts, and help reunite things with their owners.</p></div>
+      <div class="hero-note"><span class="pin">●</span><strong>Good things happen<br>when we look out<br>for each other.</strong></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="report-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Add to the board</p><h2>Report an item</h2></div><span class="paperclip">⌇</span></div>
+        <form id="itemForm">
+          <label>Item name<input name="name" required maxlength="80" placeholder="e.g. Blue water bottle"></label>
+          <label>Category<select name="category"><option>Electronics</option><option>ID/Keys</option><option>Books</option><option>Other</option></select></label>
+          <label>Where was it seen?<input name="location" required maxlength="100" placeholder="e.g. Library, 2nd floor"></label>
+          <label>Contact info<input name="contact" required maxlength="100" placeholder="Email or phone number"></label>
+          <fieldset><legend>This item was...</legend><div class="radio-row"><label><input type="radio" name="status" value="LOST" checked><span>Lost</span></label><label><input type="radio" name="status" value="FOUND"><span>Found</span></label></div></fieldset>
+          <button class="primary" type="submit">Post to noticeboard <span>→</span></button>
+          <p id="formMessage" class="form-message" role="status"></p>
+        </form>
+      </aside>
+
+      <section class="board"><div class="board-heading"><div><p class="eyebrow">Live noticeboard</p><h2 id="boardTitle">Recent items</h2></div><span id="itemCount" class="count">Loading...</span></div><div id="itemsGrid" class="items-grid" aria-live="polite"></div></section>
+    </section>
+  </main>
+  <footer>CampusTrack <span>•</span> Built for a kinder campus</footer>
+  <script src="app.js"></script>
+</body>
+</html>
